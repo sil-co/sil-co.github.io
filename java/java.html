@@ -1,0 +1,863 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial";
+    width: 100%;
+}
+
+#all-wrapper {
+    width: 100%;
+    max-width: 1080px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+#all-wrapper h1 {
+    page-break-before: always;
+    break-before: page;
+    margin-top: 10px;
+    color: #1c4587;
+    font-weight: 700;
+    font-size: 50pt;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom-color: #1c4587;
+    border-bottom-width: 3pt;
+    border-bottom-style: solid;
+}
+
+#all-wrapper h2 {
+    page-break-before: always;
+    break-before: page;
+    margin-top: 10px;
+    padding-top: 5pt;
+    border-bottom-color: #1c4587;
+    border-bottom-width: 3pt;
+    padding-bottom: 2pt;
+    line-height: 1.15;
+    border-bottom-style: solid;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+    background-color: #ffffaa;
+    font-size: 30pt;
+    color: #1c4587;
+    font-weight: 700;
+}
+
+#all-wrapper h3 {
+    page-break-before: always;
+    break-before: page;
+    margin-top: 10px;
+    border-bottom-color: #1c4587;
+    border-bottom-width: 3pt;
+    padding-bottom: 2pt;
+    line-height: 1.15;
+    border-bottom-style: solid;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+    font-size: 16pt;
+    color: #1c4587;
+    font-weight: 700;
+}
+
+#all-wrapper h4 {
+    margin-top: 10px;
+    padding-top: 14pt;
+    border-bottom-color: #1c4587;
+    border-bottom-width: 1pt;
+    padding-bottom: 3pt;
+    line-height: 1.15;
+    border-bottom-style: solid;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+    font-size: 14pt;
+    color: #1c4587;
+    font-weight: 700;
+}
+
+#all-wrapper p {
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+#all-wrapper p code {
+    background-color: #f5f5f5;
+    color: #d6336c;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+#all-wrapper img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+#all-wrapper ol {
+    list-style-type: decimal;
+    margin: 10px 0;
+    padding-left: 1.5em;
+    font-size: 1em;
+}
+
+#all-wrapper ol li {
+    margin-bottom: 0.5em;
+}
+
+#all-wrapper ul {
+    list-style-type: disc;
+    margin: 10px 0;
+    padding-left: 1.5em;
+    font-size: 1em;
+}
+
+#all-wrapper ul li {
+    margin-bottom: 0.5em;
+}
+
+#all-wrapper a {
+    text-decoration: none; /* Kindleでは基本的にテキストの装飾は制限される */
+    color: black; /* デフォルトの色で Kindle の表示に適応 */
+    font-weight: bold;
+}
+
+#all-wrapper a:hover {
+    text-decoration: underline; /* Kindleでは無視されることが多いが一応記述 */
+}
+
+
+@media (max-width: 600px) {
+    #all-wrapper ul {
+        font-size: 0.9em;
+    }
+
+    #all-wrapper ul li {
+        padding-left: 1em;
+    }
+
+    #all-wrapper ul li::before {
+        font-size: 1em;
+    }
+}
+
+#all-wrapper .page-break {
+    page-break-before: always;
+    break-before: page;
+}
+
+#all-wrapper li.toc-level-2 {
+    margin-left: 0px;
+}
+
+#all-wrapper li.toc-level-3 {
+    margin-left: 20px;
+}
+
+#all-wrapper div.code-wrapper {
+    color: #c9d1d9;
+    background: #0d1117;
+    padding: 5px;
+    max-width: 100%;
+}
+
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+code.hljs {
+    padding: 3px 5px;
+}
+
+.hljs {
+    color: #c9d1d9;
+    background: #0d1117;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+    color: #ff7b72;
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+    color: #d2a8ff;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-variable {
+    color: #79c0ff;
+}
+
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+    color: #a5d6ff;
+}
+
+.hljs-built_in,
+.hljs-symbol {
+    color: #ffa657;
+}
+
+.hljs-code,
+.hljs-comment,
+.hljs-formula {
+    color: #8b949e;
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+    color: #7ee787;
+}
+
+.hljs-subst {
+    color: #c9d1d9;
+}
+
+.hljs-section {
+    color: #1f6feb;
+    font-weight: 700;
+}
+
+.hljs-bullet {
+    color: #f2cc60;
+}
+
+.hljs-emphasis {
+    color: #c9d1d9;
+    font-style: italic;
+}
+
+.hljs-strong {
+    color: #c9d1d9;
+    font-weight: 700;
+}
+
+.hljs-addition {
+    color: #aff5b4;
+    background-color: #033a16;
+}
+
+.hljs-deletion {
+    color: #ffdcd7;
+    background-color: #67060c;
+}
+</style>
+<title>Java超入門：VSCodeでスムーズにスタート</title>
+</head>
+<body>
+<div id="all-wrapper">
+<div class="prose w-full"><h1>序章: Javaの世界へようこそ</h1>
+<h2><span>1. Javaの基本</span></h2>
+<h3><span>1.1 Javaの特徴</span></h3>
+<h3><span>1.2 Javaが選ばれる理由</span></h3>
+<h1>第1章: 環境の準備</h1>
+<h2><span>1. Visual Studio Codeのインストール</span></h2>
+<h3><span>1.1 VSCodeとは</span></h3>
+<h3><span>1.2 VSCodeのダウンロードとインストール</span></h3>
+<h4><span>ステップ1: VSCodeのダウンロード</span></h4>
+<h4><span>ステップ2: インストール</span></h4>
+<h2><span>2. Java開発環境のセットアップ</span></h2>
+<h3><span>2.1 JDKのインストール</span></h3>
+<h4><span>WindowsでのJDKインストール手順</span></h4>
+<h4><span>macOSでのJDKインストール手順</span></h4>
+<h3><span>2.2 環境変数の設定</span></h3>
+<h4><span>2.2.1 Windowsでの環境変数設定</span></h4>
+<h4><span>2.2.2 Macでの環境変数設定</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-bash">   /usr/libexec/java_home
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-bash">   <span class="hljs-built_in">export</span> JAVA_HOME=$(/usr/libexec/java_home)
+   <span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$JAVA_HOME</span>/bin:<span class="hljs-variable">$PATH</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-bash">   <span class="hljs-built_in">source</span> ~/.bash_profile
+</code></pre></div>
+<h2><span>3. VSCodeでJavaプラグインを使う</span></h2>
+<h3><span>3.1 必要な拡張機能の導入</span></h3>
+<h4><span>Java 拡張パックのインストール</span></h4>
+<h4><span>拡張機能の確認</span></h4>
+<h3><span>3.2 Hello Worldの実行</span></h3>
+<h4><span>必要な準備</span></h4>
+<h4><span>プログラムを書く</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java">     <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloWorld</span> {
+         <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+             System.out.println(<span class="hljs-string">"Hello, World!"</span>);
+         }
+     }
+</code></pre></div>
+<h4><span>プログラムの実行</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-bash">     javac HelloWorld.java
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-bash">     java HelloWorld
+</code></pre></div>
+<h1>第2章: Javaの基本文法</h1>
+<h2><span>1. 変数とデータ型</span></h2>
+<h3><span>1.1 変数とは</span></h3>
+<h4><span>なぜ変数が必要なのか？</span></h4>
+<h4><span>変数の役割</span></h4>
+<h4><span>Javaの変数の書き方</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">appleCount</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+</code></pre></div>
+<h4><span>よく使うデータ型</span></h4>
+<h3><span>1.2 基本データ型</span></h3>
+<h4><span>整数型</span></h4>
+<h4><span>浮動小数点数型</span></h4>
+<h4><span>文字型</span></h4>
+<h4><span>論理型</span></h4>
+<h2><span>2. 演算子と式</span></h2>
+<h3><span>2.1 算術演算子</span></h3>
+<h4><span>加算演算子 <code>+</code></span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> a + b;  <span class="hljs-comment">// 結果は30</span>
+</code></pre></div>
+<h4><span>減算演算子 <code>-</code></span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> a - b;  <span class="hljs-comment">// 結果は10</span>
+</code></pre></div>
+<h4><span>乗算演算子 <code>*</code></span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> a * b;  <span class="hljs-comment">// 結果は50</span>
+</code></pre></div>
+<h4><span>除算演算子 <code>/</code></span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> a / b;  <span class="hljs-comment">// 結果は6</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">double</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span>;
+<span class="hljs-type">double</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">3.0</span>;
+<span class="hljs-type">double</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> a / b;  <span class="hljs-comment">// 結果は6.666...</span>
+</code></pre></div>
+<h4><span>剰余演算子 <code>%</code></span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> a % b;  <span class="hljs-comment">// 結果は2</span>
+</code></pre></div>
+<h3><span>2.2 比較演算子と論理演算子</span></h3>
+<h4><span>比較演算子</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  System.out.println(a == b);  <span class="hljs-comment">// 結果: true</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+  System.out.println(a != b);  <span class="hljs-comment">// 結果: true</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+  <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  System.out.println(a &lt; b);   <span class="hljs-comment">// 結果: true</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+  <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  System.out.println(a &gt; b);   <span class="hljs-comment">// 結果: true</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  System.out.println(a &lt;= b);  <span class="hljs-comment">// 結果: true</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
+  <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">4</span>;
+  System.out.println(a &gt;= b);  <span class="hljs-comment">// 結果: true</span>
+</code></pre></div>
+<h4><span>論理演算子</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">boolean</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+  <span class="hljs-type">boolean</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+  System.out.println(x &amp;&amp; y);  <span class="hljs-comment">// 結果: true</span>
+
+  x = <span class="hljs-literal">true</span>;
+  y = <span class="hljs-literal">false</span>;
+  System.out.println(x &amp;&amp; y);  <span class="hljs-comment">// 結果: false</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">boolean</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+  <span class="hljs-type">boolean</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+  System.out.println(x || y);  <span class="hljs-comment">// 結果: true</span>
+
+  x = <span class="hljs-literal">false</span>;
+  y = <span class="hljs-literal">false</span>;
+  System.out.println(x || y);  <span class="hljs-comment">// 結果: false</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">  <span class="hljs-type">boolean</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+  System.out.println(!x);      <span class="hljs-comment">// 結果: false</span>
+  
+  x = <span class="hljs-literal">false</span>;
+  System.out.println(!x);      <span class="hljs-comment">// 結果: true</span>
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-markdown"><span class="hljs-section">## 3. 制御構文</span>
+
+プログラムはさまざまな処理を組み合わせて実行します。ここでは、Javaでの基本的な制御構文を学びます。条件分岐や繰り返し処理を理解し、プログラムの流れをコントロールしましょう。次にforループとwhileループで具体的な繰り返しの実装方法を紹介します。
+</code></pre></div>
+<h3><span>3.1 if文</span></h3>
+<h4><span>if文の構文</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">if</span> (条件) {
+    <span class="hljs-comment">// 条件がtrueのときに実行されるコード</span>
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+
+<span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">5</span>) {
+    System.out.println(<span class="hljs-string">"xは5より大きいです。"</span>);
+}
+</code></pre></div>
+<h4><span>if-else文</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">if</span> (条件) {
+    <span class="hljs-comment">// 条件がtrueのときに実行されるコード</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// 条件がfalseのときに実行されるコード</span>
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+
+<span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">5</span>) {
+    System.out.println(<span class="hljs-string">"xは5より大きいです。"</span>);
+} <span class="hljs-keyword">else</span> {
+    System.out.println(<span class="hljs-string">"xは5以下です。"</span>);
+}
+</code></pre></div>
+<h4><span>if-else if-else文</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">if</span> (条件<span class="hljs-number">1</span>) {
+    <span class="hljs-comment">// 条件1がtrueのときに実行されるコード</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件<span class="hljs-number">2</span>) {
+    <span class="hljs-comment">// 条件1がfalseで条件2がtrueのときに実行されるコード</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// どちらの条件もfalseのときに実行されるコード</span>
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">score</span> <span class="hljs-operator">=</span> <span class="hljs-number">85</span>;
+
+<span class="hljs-keyword">if</span> (score &gt;= <span class="hljs-number">90</span>) {
+    System.out.println(<span class="hljs-string">"評価: A"</span>);
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (score &gt;= <span class="hljs-number">75</span>) {
+    System.out.println(<span class="hljs-string">"評価: B"</span>);
+} <span class="hljs-keyword">else</span> {
+    System.out.println(<span class="hljs-string">"評価: C"</span>);
+}
+</code></pre></div>
+<h4><span>if文の入れ子（ネスト）</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+
+<span class="hljs-keyword">if</span> (num &gt; <span class="hljs-number">5</span>) {
+    System.out.println(<span class="hljs-string">"numは5より大きいです。"</span>);
+    
+    <span class="hljs-keyword">if</span> (num &gt; <span class="hljs-number">8</span>) {
+        System.out.println(<span class="hljs-string">"numは8より大きいです。"</span>);
+    }
+}
+</code></pre></div>
+<h4><span>実践してみよう</span></h4>
+<h3><span>3.2 switch文</span></h3>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">switch</span> (変数) {
+    <span class="hljs-keyword">case</span> 値<span class="hljs-number">1</span>:
+        <span class="hljs-comment">// 値1の時の処理</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> 値<span class="hljs-number">2</span>:
+        <span class="hljs-comment">// 値2の時の処理</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-comment">// 必要に応じて case 節を追加できます</span>
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-comment">// どのcase節にも一致しない場合の処理</span>
+}
+</code></pre></div>
+<h4><span>詳細な説明:</span></h4>
+<h4><span>実例:</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">day</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+String dayName;
+
+<span class="hljs-keyword">switch</span> (day) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        dayName = <span class="hljs-string">"Monday"</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        dayName = <span class="hljs-string">"Tuesday"</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        dayName = <span class="hljs-string">"Wednesday"</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+        dayName = <span class="hljs-string">"Thursday"</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+        dayName = <span class="hljs-string">"Friday"</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:
+        dayName = <span class="hljs-string">"Saturday"</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:
+        dayName = <span class="hljs-string">"Sunday"</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+        dayName = <span class="hljs-string">"Invalid day"</span>;
+}
+
+System.out.println(<span class="hljs-string">"Day "</span> + day + <span class="hljs-string">" is "</span> + dayName);
+</code></pre></div>
+<h4><span>注意点:</span></h4>
+<h3><span>3.3 forループとwhileループ</span></h3>
+<h4><span>forループ</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">for</span> (初期化; 条件; 更新) {
+    <span class="hljs-comment">// 繰り返し実行したい処理</span>
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {
+    System.out.println(<span class="hljs-string">"カウント: "</span> + i);
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code>カウント: 0
+カウント: 1
+カウント: 2
+カウント: 3
+カウント: 4
+</code></pre></div>
+<h4><span>whileループ</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">while</span> (条件) {
+    <span class="hljs-comment">// 繰り返し実行したい処理</span>
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+<span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">5</span>) {
+    System.out.println(<span class="hljs-string">"カウント: "</span> + i);
+    i++;
+}
+</code></pre></div>
+<h4><span>どちらを選ぶか？</span></h4>
+<h1>第3章: オブジェクト指向プログラミング</h1>
+<h2><span>1. クラスとオブジェクト</span></h2>
+<h3><span>1.1 クラスの定義</span></h3>
+<h4><span>クラスの基本構造</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> class クラス名 {
+    <span class="hljs-comment">// フィールド（データ、変数）やメソッド（関数）を定義</span>
+}
+</code></pre></div>
+<h4><span>クラスの例</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+    <span class="hljs-comment">// フィールド（変数）</span>
+    String brand;
+    <span class="hljs-type">int</span> year;
+
+    <span class="hljs-comment">// メソッド（関数）</span>
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">displayInfo</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">"Brand: "</span> + brand + <span class="hljs-string">", Year: "</span> + year);
+    }
+}
+</code></pre></div>
+<h4><span>実用的なヒント</span></h4>
+<h3><span>1.2 オブジェクトの生成</span></h3>
+<h4><span>クラスとオブジェクトの関係</span></h4>
+<h4><span>基本的なオブジェクト生成の手順</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">ClassName</span> <span class="hljs-variable">objectName</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassName</span>();
+</code></pre></div>
+<h4><span>例：シンプルなクラスとオブジェクト生成</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> {
+    <span class="hljs-comment">// クラス内のフィールド（プロパティ）</span>
+    String name;
+    
+    <span class="hljs-comment">// コンストラクタ</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Dog</span><span class="hljs-params">(String name)</span> {
+        <span class="hljs-built_in">this</span>.name = name;
+    }
+    
+    <span class="hljs-comment">// メソッド</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">bark</span><span class="hljs-params">()</span> {
+        System.out.println(name + <span class="hljs-string">" says: Woof!"</span>);
+    }
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-comment">// Dogオブジェクトを生成</span>
+        <span class="hljs-type">Dog</span> <span class="hljs-variable">myDog</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>(<span class="hljs-string">"Pochi"</span>);
+        
+        <span class="hljs-comment">// オブジェクトのメソッドを呼び出す</span>
+        myDog.bark(); <span class="hljs-comment">// 出力: Pochi says: Woof!</span>
+    }
+}
+</code></pre></div>
+<h4><span>ポイントのまとめ</span></h4>
+<h2><span>2. メソッドとコンストラクタ</span></h2>
+<h3><span>2.1 メソッドの定義</span></h3>
+<h4><span>メソッドの基本構造</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java">accessModifier returnType <span class="hljs-title function_">methodName</span><span class="hljs-params">(parameters)</span> {
+    <span class="hljs-comment">// メソッドの処理内容</span>
+}
+</code></pre></div>
+<h4><span>例: シンプルなメソッド定義</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">greet</span><span class="hljs-params">()</span> {
+    System.out.println(<span class="hljs-string">"こんにちは、世界！"</span>);
+}
+</code></pre></div>
+<h4><span>メソッドの呼び出し</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloWorld</span> {
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">greet</span><span class="hljs-params">()</span> {
+        System.out.println(<span class="hljs-string">"こんにちは、世界！"</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">HelloWorld</span> <span class="hljs-variable">hello</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HelloWorld</span>();
+        hello.greet();  <span class="hljs-comment">// greet メソッドの呼び出し</span>
+    }
+}
+</code></pre></div>
+<h4><span>パラメータ付きメソッド</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">greet</span><span class="hljs-params">(String name)</span> {
+    System.out.println(<span class="hljs-string">"こんにちは、"</span> + name + <span class="hljs-string">"さん！"</span>);
+}
+</code></pre></div>
+<h4><span>リターン付きメソッド</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> {
+    <span class="hljs-keyword">return</span> a + b;
+}
+</code></pre></div>
+<h4><span>まとめ</span></h4>
+<h3><span>2.2 コンストラクタとthisキーワード</span></h3>
+<h4><span>コンストラクタとは</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+    String model;
+    <span class="hljs-type">int</span> year;
+
+    <span class="hljs-comment">// コンストラクタ</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Car</span><span class="hljs-params">(String model, <span class="hljs-type">int</span> year)</span> {
+        <span class="hljs-built_in">this</span>.model = model;
+        <span class="hljs-built_in">this</span>.year = year;
+    }
+}
+</code></pre></div>
+<h4><span>デフォルトコンストラクタ</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+    String model;
+    <span class="hljs-type">int</span> year;
+
+    <span class="hljs-comment">// デフォルトコンストラクタは明示的に宣言されないと生成されない</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Car</span><span class="hljs-params">()</span> {
+        <span class="hljs-comment">// フィールドのデフォルト値を設定できる</span>
+    }
+}
+</code></pre></div>
+<h4><span>thisキーワード</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-title function_">Car</span><span class="hljs-params">(String model, <span class="hljs-type">int</span> year)</span> {
+    <span class="hljs-built_in">this</span>.model = model;
+    <span class="hljs-built_in">this</span>.year = year;
+}
+</code></pre></div>
+<h4><span>まとめ</span></h4>
+<h1>第4章: 高度なJavaプログラミング</h1>
+<h2><span>1. コレクションとジェネリクス</span></h2>
+<h3><span>1.1 コレクションの基本</span></h3>
+<h4><span>配列との違い</span></h4>
+<h4><span>コレクションフレームワーク</span></h4>
+<h4><span>Listの使い方</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">import</span> java.util.ArrayList;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ListExample</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        ArrayList&lt;Integer&gt; numbers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        <span class="hljs-comment">// 要素の追加</span>
+        numbers.add(<span class="hljs-number">10</span>);
+        numbers.add(<span class="hljs-number">20</span>);
+        numbers.add(<span class="hljs-number">30</span>);
+
+        <span class="hljs-comment">// 要素の取得</span>
+        System.out.println(<span class="hljs-string">"要素の取得: "</span> + numbers.get(<span class="hljs-number">0</span>));  <span class="hljs-comment">// 出力: 10</span>
+
+        <span class="hljs-comment">// 要素の削除</span>
+        numbers.remove(<span class="hljs-number">1</span>);  <span class="hljs-comment">// インデックス1の要素を削除</span>
+
+        <span class="hljs-comment">// リストのサイズ</span>
+        System.out.println(<span class="hljs-string">"リストのサイズ: "</span> + numbers.size());  <span class="hljs-comment">// 出力: 2</span>
+
+        <span class="hljs-comment">// 全要素の表示</span>
+        <span class="hljs-keyword">for</span> (Integer number : numbers) {
+            System.out.println(number);
+        }
+    }
+}
+</code></pre></div>
+<h4><span>自主学習のポイント</span></h4>
+<h3><span>1.2 ジェネリクスの活用</span></h3>
+<h4><span>ジェネリクスの基本</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">List</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();
+list.add(<span class="hljs-string">"Hello"</span>);
+<span class="hljs-type">String</span> <span class="hljs-variable">element</span> <span class="hljs-operator">=</span> (String) list.get(<span class="hljs-number">0</span>);
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+list.add(<span class="hljs-string">"Hello"</span>);
+<span class="hljs-type">String</span> <span class="hljs-variable">element</span> <span class="hljs-operator">=</span> list.get(<span class="hljs-number">0</span>);
+</code></pre></div>
+<h4><span>ジェネリクスの仕組み</span></h4>
+<h6>型パラメータの利用</h6>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Box</span>&lt;T&gt; {
+    <span class="hljs-keyword">private</span> T content;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setContent</span><span class="hljs-params">(T content)</span> {
+        <span class="hljs-built_in">this</span>.content = content;
+    }
+
+    <span class="hljs-keyword">public</span> T <span class="hljs-title function_">getContent</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> content;
+    }
+}
+</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs language-java">Box&lt;Integer&gt; integerBox = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Box</span>&lt;&gt;();
+integerBox.setContent(<span class="hljs-number">123</span>);
+<span class="hljs-type">Integer</span> <span class="hljs-variable">content</span> <span class="hljs-operator">=</span> integerBox.getContent();
+</code></pre></div>
+<h4><span>ジェネリクスの制約</span></h4>
+<h2><span>2. ラムダ式とストリームAPI</span></h2>
+<h3><span>2.2 ストリームAPIによるデータ処理</span></h3>
+<h3><span>2.1 ラムダ式の基礎</span></h3>
+<h4><span>ラムダ式の基本構文</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java">(引数リスト) -&gt; { メソッド本体 }
+</code></pre></div>
+<h4><span>簡単な例</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java">() -&gt; System.out.println(<span class="hljs-string">"Hello, World!"</span>);
+</code></pre></div>
+<h4><span>引数を取るラムダ式</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b) -&gt; System.out.println(a + b);
+</code></pre></div>
+<h4><span>ラムダ式と関数型インターフェース</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-type">Runnable</span> <span class="hljs-variable">runner</span> <span class="hljs-operator">=</span> () -&gt; System.out.println(<span class="hljs-string">"Running"</span>);
+</code></pre></div>
+<h4><span>なぜラムダ式を使うのか？</span></h4>
+<h3><span>2.2 ストリームAPIによるデータ処理</span></h3>
+<h4><span>ストリームとは？</span></h4>
+<h4><span>ストリームの作成</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.List;
+<span class="hljs-keyword">import</span> java.util.stream.Stream;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StreamExample</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        List&lt;String&gt; names = Arrays.asList(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Charlie"</span>);
+        
+        <span class="hljs-comment">// リストからストリームを作成</span>
+        Stream&lt;String&gt; nameStream = names.stream();
+        
+        <span class="hljs-comment">// ストリームの要素を一つずつ出力</span>
+        nameStream.forEach(System.out::println);
+    }
+}
+</code></pre></div>
+<h4><span>ストリームの中間操作と終端操作</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StreamOperations</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        List&lt;String&gt; names = Arrays.asList(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Charlie"</span>, <span class="hljs-string">"David"</span>);
+
+        names.stream()
+             .filter(name -&gt; name.startsWith(<span class="hljs-string">"C"</span>)) <span class="hljs-comment">// 'C'で始まる名前をフィルタ</span>
+             .map(String::toUpperCase)             <span class="hljs-comment">// 大文字に変換</span>
+             .forEach(System.out::println);        <span class="hljs-comment">// 結果を出力</span>
+    }
+}
+</code></pre></div>
+<h4><span>集約操作</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StreamReduction</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        List&lt;Integer&gt; numbers = Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
+
+        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> numbers.stream()
+                         .reduce(<span class="hljs-number">0</span>, (subtotal, element) -&gt; subtotal + element);
+
+        System.out.println(<span class="hljs-string">"合計: "</span> + sum);
+    }
+}
+</code></pre></div>
+<h4><span>ストリームの利点</span></h4>
+<h2><span>3. 例外処理</span></h2>
+<h3><span>3.2 例外のキャッチとスロー</span></h3>
+<h3><span>3.1 例外の基本</span></h3>
+<h4><span>例外とは？</span></h4>
+<h4><span>例外の種類</span></h4>
+<h4><span>例外の発生と処理</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// リスクのあるコード</span>
+    <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span> / <span class="hljs-number">0</span>;
+} <span class="hljs-keyword">catch</span> (ArithmeticException e) {
+    <span class="hljs-comment">// 例外処理</span>
+    System.out.println(<span class="hljs-string">"ゼロでの除算が発生しました。"</span>);
+}
+</code></pre></div>
+<h4><span>finallyブロック</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// リスクのあるコード</span>
+} <span class="hljs-keyword">catch</span> (Exception e) {
+    <span class="hljs-comment">// 例外処理</span>
+} <span class="hljs-keyword">finally</span> {
+    <span class="hljs-comment">// 必ず実行されるコード</span>
+    System.out.println(<span class="hljs-string">"例外処理完了後に必ず実行されます。"</span>);
+}
+</code></pre></div>
+<h4><span>例外を作成する</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">checkValue</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span> {
+    <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"負の値は許可されていません。"</span>);
+    }
+}
+</code></pre></div>
+<h3><span>3.2 例外のキャッチとスロー</span></h3>
+<h4><span>例外をキャッチする</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// 例外が発生する可能性があるコード</span>
+    <span class="hljs-type">int</span>[] numbers = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>};
+    System.out.println(numbers[<span class="hljs-number">3</span>]);
+} <span class="hljs-keyword">catch</span> (ArrayIndexOutOfBoundsException e) {
+    <span class="hljs-comment">// 例外を処理するコード</span>
+    System.out.println(<span class="hljs-string">"配列の範囲外を参照しました: "</span> + e.getMessage());
+}
+</code></pre></div>
+<h4><span>例外をスローする</span></h4>
+<div class="code-wrapper"><pre><code class="hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">checkNumber</span><span class="hljs-params">(<span class="hljs-type">int</span> number)</span> {
+    <span class="hljs-keyword">if</span> (number &lt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">"入力された数字は負の数です: "</span> + number);
+    }
+    System.out.println(<span class="hljs-string">"入力された数字は: "</span> + number);
+}
+</code></pre></div>
+<h4><span>例外の種類</span></h4></div>
+</div>
+</body>
+</html>
